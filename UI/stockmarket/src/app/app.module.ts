@@ -3,18 +3,20 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { HttpUtil } from './util/http.util';
 import { MoneyPipe } from './pipe/money.pipe';
 
+import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { IndexModule } from './pages/index/index.module';
 import { UserModule } from './pages/user/user.module';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, MoneyPipe],
+  declarations: [AppComponent, NavbarComponent, FooterComponent, MoneyPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,6 +25,7 @@ import { UserModule } from './pages/user/user.module';
     ReactiveFormsModule,
     UserModule,
     IndexModule,
+    NgbAlertModule,
   ],
   providers: [
     HttpUtil,

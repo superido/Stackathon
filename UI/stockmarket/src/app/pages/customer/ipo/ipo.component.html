@@ -1,0 +1,60 @@
+<h5 class="title">List of Companies</h5>
+
+<form>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">company</th>
+        <th scope="col">
+          exchange
+        </th>
+        <th scope="col">date</th>
+        <th scope="col">
+          operate
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datas">
+        <th scope="row">{{ data.id }}</th>
+        <td>
+          Company1
+        </td>
+        <td>
+          BSE,NSE
+        </td>
+        <td>
+          abcdef
+        </td>
+        <td>
+          2020/05/05
+        </td>
+
+        <td>
+          <a href="/">edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!--
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="(total$ | async)!"
+      [(page)]="service.page"
+      [pageSize]="service.pageSize"
+    >
+    </ngb-pagination>
+
+    <select
+      class="custom-select"
+      style="width: auto;"
+      name="pageSize"
+      [(ngModel)]="service.pageSize"
+    >
+      <option [ngValue]="2">2 items per page</option>
+      <option [ngValue]="4">4 items per page</option>
+      <option [ngValue]="6">6 items per page</option>
+    </select>
+  </div> -->
+</form>

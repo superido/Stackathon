@@ -1,28 +1,32 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 import { IndexComponent } from './index.component';
 import { IndexRoutingModule } from './index-routing.module';
-// import {MyHeaderComponent} from "./common/my-header.component";
 
+import { NgxEchartsModule } from 'ngx-echarts';
+
+import { ImportdataComponent } from '../admin/importdata/importdata.component';
+import { ManagecompanyComponent } from '../admin/managecompany/managecompany.component';
+import { IpoComponent } from '../customer/ipo/ipo.component';
+import { ComparecompanyComponent } from '../customer/comparecompany/comparecompany.component';
 // import { TUserModule } from '../../models/t-user.module';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-// import {AsideComponent} from "../aside/aside.component";
+import { AdminService } from '../../services/Admin.service';
 
 @NgModule({
   imports: [
-    BrowserModule,
-    FormsModule,
-    // BsDropdownModule.forRoot(),
+    CommonModule,
     IndexRoutingModule,
+    NgxEchartsModule,
     // TUserModule,
   ],
   declarations: [
     IndexComponent,
-    // MyHeaderComponent,
-    // AsideComponent
+    ImportdataComponent,
+    ManagecompanyComponent,
+    IpoComponent,
+    ComparecompanyComponent
   ],
-  providers: [],
+  providers: [AdminService],
 })
 export class IndexModule {}

@@ -1,16 +1,37 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {IndexComponent} from "./index.component";
-// import {DashboardComponent} from "../baseinfo/dashboard.component";
-
+import { IndexComponent } from './index.component';
+import { ImportdataComponent } from '../admin/importdata/importdata.component';
+import { ManagecompanyComponent } from '../admin/managecompany/managecompany.component';
+import { IpoComponent } from '../customer/ipo/ipo.component';
+import { ComparecompanyComponent } from '../customer/comparecompany/comparecompany.component';
 const routes: Routes = [
   {
-    path: 'index',
-    component:  IndexComponent
+    path: '',
+    component: IndexComponent,
+    children: [
+      {
+        path: 'import',
+        component: ImportdataComponent,
+      },
+      {
+        path: 'managecompany',
+        component: ManagecompanyComponent,
+      },
+      {
+        path: 'ipo',
+        component: IpoComponent,
+      },
+      {
+        path: 'comparecompany',
+        component: ComparecompanyComponent,
+      },
+    ],
   },
+  { path: '', redirectTo: 'index/import', pathMatch: 'full' },
 ];
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
 export class IndexRoutingModule {}

@@ -19,6 +19,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: '', redirectTo: 'user/login', pathMatch: 'full' }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

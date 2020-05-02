@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     if (sessionStorage.getItem('token')) {
-      this.router.navigate(['/products']);
+      this.router.navigate(['/index']);
     }
   }
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           if (200 === info.code) {
               console.log('登录成功，调转详情页');
               sessionStorage.setItem('token', info.result.token)
-              this.router.navigate(['/products']);
+              this.router.navigate(['/index']);
           } else {
             console.log('登录失败，弹出MSG');
             this.alerts.push({type : 'danger', message: 'username or password error!'});
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
   /* 验证输入项 */
   validInput(value: any): boolean {
     this.reset();
-    let result = true
+    let result = true;
     if (!value.name) {
       this.alerts.push({type : 'danger', message: 'username required!'});
       result = false;

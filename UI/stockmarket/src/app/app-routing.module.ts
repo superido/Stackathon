@@ -6,7 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'user', loadChildren: './pages/user/user.module#UserModule' },
-  { path: '', redirectTo: 'user', pathMatch: 'full' },
+  { path: 'index', loadChildren: './pages/index/index.module#IndexModule' },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
