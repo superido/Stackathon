@@ -1,0 +1,25 @@
+#server:
+#  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    config:
+      discovery:
+        service-id: config-service
+        enable: true
+        label: master
+        profile: test
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    ip-address: true
+#
+#zuul:
+#  ignoredServices: '*'
+#  routes:
+#    order-service: /stockmarket/**

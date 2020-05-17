@@ -1,0 +1,21 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/superido/springcloud
+          #username: user
+          #password: psw
+          timeout: 5 #超时时间
+          default-label: master #分支
+          skipSslValidation: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
