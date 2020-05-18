@@ -19,6 +19,7 @@
         <module>config_server</module>
         <module>gateway</module>
         <module>stock-market-user-service</module>
+        <module>stock-market-company-service</module>
 	</modules>
 
     <packaging>pom</packaging>
