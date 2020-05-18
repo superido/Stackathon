@@ -40,8 +40,8 @@ public class StockPrice implements Serializable {
     private Long id;
 
     @Basic
-    @Column(name = "company_code", nullable = false)
-    private String companyCode;
+    @Column(name = "company_id", nullable = false)
+    private String companyId;
 
     @Basic
     @Column(name = "stock_exchange", nullable = false)

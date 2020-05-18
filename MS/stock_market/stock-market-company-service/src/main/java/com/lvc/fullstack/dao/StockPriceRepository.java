@@ -23,5 +23,5 @@ public interface StockPriceRepository extends JpaRepository<StockPrice, Long> {
 			@Param("stockExchange") String stockExchange, @Param("startDate") Date startDate,
 			@Param("startTime") Time startTime, @Param("endDate") Date endDate, @Param("endTime") Time endTime);
 
-	List<StockPrice> findStockPriceDetailByCompanyCodeAndStockExchange(String companyCode, String stockExchange);
+	List<StockPrice> findStockPriceByCompanyIdAndStockExchange(String companyId, String stockExchange);
 }
