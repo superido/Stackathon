@@ -8,10 +8,12 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { ImportdataComponent } from '../admin/importdata/importdata.component';
 import { ManagecompanyComponent } from '../admin/managecompany/managecompany.component';
 import { IpoComponent } from '../customer/ipo/ipo.component';
-import { ComparecompanyComponent } from '../customer/comparecompany/comparecompany.component';
+import { ComparecompanyComponent } from '../customer/comparecompany-charts/comparecompany-charts.component';
+import { ComparisonComponent } from '../customer/comparison/comparison.component';
 // import { TUserModule } from '../../models/t-user.module';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminService } from '../../services/Admin.service';
+import { CompanyService } from '../../services/company.service';
 
 @NgModule({
   imports: [
@@ -25,8 +27,9 @@ import { AdminService } from '../../services/Admin.service';
     ImportdataComponent,
     ManagecompanyComponent,
     IpoComponent,
-    ComparecompanyComponent
+    ComparecompanyComponent,
+    ComparisonComponent
   ],
-  providers: [AdminService],
+  providers: [AdminService, CompanyService],
 })
 export class IndexModule {}

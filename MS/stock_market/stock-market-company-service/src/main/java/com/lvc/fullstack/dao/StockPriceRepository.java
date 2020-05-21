@@ -21,7 +21,7 @@ public interface StockPriceRepository extends JpaRepository<StockPrice, Long> {
 			+ "order by price_date desc, price_time desc ")
 	List<StockPrice> findStockPriceByStatement(@Param("companyId") String companyId,
 			@Param("stockExchange") String stockExchange, @Param("startDate") Date startDate,
-			@Param("startTime") Time startTime, @Param("endDate") Date endDate, @Param("endTime") Time endTime);
+			@Param("startTime") String startTime, @Param("endDate") Date endDate, @Param("endTime") String endTime);
 
 	List<StockPrice> findStockPriceByCompanyIdAndStockExchange(String companyId, String stockExchange);
 }

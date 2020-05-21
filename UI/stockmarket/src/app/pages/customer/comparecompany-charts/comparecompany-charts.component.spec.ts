@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComparecompanyComponent } from './comparecompany.component';
+import { ComparecompanyComponent } from './comparecompany-charts.component';
 
 describe('ComparecompanyComponent', () => {
   let component: ComparecompanyComponent;

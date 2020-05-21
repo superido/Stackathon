@@ -11,6 +11,6 @@ public interface IStockPriceService {
 
     BigDecimal findLatestPrice(String companyCode);
     
-    List<StockPrice> findStockPrice(String companyId, String stockExchange, Date startDate, Time startTime, Date endDate, Time endTime);
+    List<StockPrice> findStockPrice(String companyId, String stockExchange, Date startDate, String startTime, Date endDate, String endTime);
 
 }

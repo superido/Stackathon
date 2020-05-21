@@ -2,7 +2,6 @@ package com.lvc.fullstack.service.impl;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +35,8 @@ public class StockPriceService implements IStockPriceService {
 	}
 
 	@Override
-	public List<StockPrice> findStockPrice(String companyId, String stockExchange, Date startDate, Time startTime,
-			Date endDate, Time endTime) {
+	public List<StockPrice> findStockPrice(String companyId, String stockExchange, Date startDate, String startTime,
+			Date endDate, String endTime) {
 		Company company = this.companyRepository.findStockCodeByCompanyId(companyId);
 		String stockCode = company.getStockCode();
 		return this.stockPriceRepository.findStockPriceByStatement(stockCode, stockExchange, startDate, startTime,

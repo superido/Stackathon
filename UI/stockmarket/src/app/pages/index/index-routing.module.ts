@@ -4,7 +4,8 @@ import { IndexComponent } from './index.component';
 import { ImportdataComponent } from '../admin/importdata/importdata.component';
 import { ManagecompanyComponent } from '../admin/managecompany/managecompany.component';
 import { IpoComponent } from '../customer/ipo/ipo.component';
-import { ComparecompanyComponent } from '../customer/comparecompany/comparecompany.component';
+import { ComparecompanyComponent } from '../customer/comparecompany-charts/comparecompany-charts.component';
+import { ComparisonComponent } from '../customer/comparison/comparison.component';
 const routes: Routes = [
   {
     path: '',
@@ -23,8 +24,12 @@ const routes: Routes = [
         component: IpoComponent,
       },
       {
-        path: 'comparecompany',
+        path: 'comparecompany-chart',
         component: ComparecompanyComponent,
+      },
+      {
+        path: 'comparison',
+        component: ComparisonComponent,
       },
     ],
   },

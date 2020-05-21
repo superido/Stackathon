@@ -1,0 +1,88 @@
+<h5 class="title">Compare Companies</h5>
+
+<div>
+  <form>
+    <div class="input-group form-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Select Company</span>
+      </div>
+      <select class="form-control" (change)="getCompanyName($event)">
+        <option *ngFor="let item of companyList; let key = index">{{
+          item.companyName
+        }}</option>
+      </select>
+    </div>
+    <div class="input-group form-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Select Stock Exchange</span>
+      </div>
+      <select class="form-control" (change)="getStockExchangeName($event)">
+        <option *ngFor="let item of stockExchangeList">{{
+          item.stockExchangeName
+        }}</option>
+      </select>
+    </div>
+    <div class="input-group form-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">From Period</span>
+      </div>
+      <input
+        type="date"
+        class="form-control"
+        placeholder=""
+        (change)="fromPeriodChange($event)"
+      />
+    </div>
+    <div class="input-group form-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">To Period</span>
+      </div>
+      <input
+        type="date"
+        class="form-control"
+        placeholder=""
+        (change)="toPeriodChange($event)"
+      />
+    </div>
+    <div class="input-group form-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Specify Periodicity</span>
+      </div>
+      <input
+        type="text"
+        name="periodSize"
+        class="form-control"
+        placeholder=""
+      />
+      <div class="input-group-prepend">
+        <span class="input-group-text">Specify Periodicity unit</span>
+      </div>
+      <select class="form-control" (change)="periodUnitChange($event)">
+        <option>second</option>
+        <option>minute</option>
+        <option>hour</option>
+        <option>month</option>
+        <option>year</option>
+      </select>
+    </div>
+    <div>
+      <div class="form-group">
+        <input
+          type="submit"
+          id="generateMap"
+          value="Generate Map"
+          class="btn float-left login_btn"
+          (click)="generateMap()"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="submit"
+          value="Add"
+          class="btn float-right login_btn"
+          [disabled]="addDisabled"
+        />
+      </div>
+    </div>
+  </form>
+</div>
