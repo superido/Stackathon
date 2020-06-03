@@ -6,7 +6,7 @@ server:
 # jpa config
 spring:
   application:
-    name: user-service
+    name: company-service
   jpa:
     generate-ddl: true
     hibernate:

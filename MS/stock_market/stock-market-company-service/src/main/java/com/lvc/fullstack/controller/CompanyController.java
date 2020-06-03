@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +42,7 @@ public class CompanyController {
 		List<Company> companyList = companyService.findCompanyList();
 		List<CompanyModel> companyModel = companyList.stream().map(company -> {
 			CompanyModel ret = new CompanyModel();
+			BeanUtils.copyProperties(company, ret);
 			BigDecimal currentPrice = stockPriceService.findLatestPrice(company.getStockCode());
 			ret.setCurrentPrice(currentPrice);
 			return ret;
