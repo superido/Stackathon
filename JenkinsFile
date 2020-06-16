@@ -1,0 +1,77 @@
+pipeline {
+    agent any
+    stages {
+      stage('Build') { 
+          steps {
+              bat 'mvn -B -DskipTests clean package' 
+          }
+      }
+		
+		  stage('Build docker images') { 
+        steps {
+          dir("Eureka") {
+                bat 'docker build -t eureka_server .'
+                  }
+          dir("Zuul") {
+                      bat 'docker build -t gateway .'
+          }
+          dir("UserService") {
+            bat 'docker build -t stock-market-user-service .'
+          }
+          dir("CompanyService") {
+            bat 'docker build -t stock-market-company-service .'
+          }
+        }
+      }
+		
+		stage('Run eureka') { 
+      steps {
+			  script {
+          try {
+            bat 'docker container stop eureka_server'
+            bat 'docker container rm eureka_server'
+          } catch (err) {
+            echo err
+          }
+        }
+        bat 'docker run -d --name eureka_server -p 8761:8761 eureka_server'
+      }
+		}
+		stage('Run zuul') { 
+			steps {
+			  script {
+                try {
+                  bat 'docker container stop gateway'
+				  bat 'docker container rm gateway'
+                } catch (err) {
+                  echo err
+                }
+              }
+
+          bat 'docker run -d --name gateway -p 8080:80 mod-zuul'
+        }
+		}
+		stage('Run user service') {
+		  steps {
+			  catchError {
+                   bat 'docker container stop stock-market-user-service'
+				   bat 'docker container rm stock-market-user-service'
+                
+              }
+              
+              bat 'docker run -d --name stock-market-user-service -p 8081:8081 mod-user-service'
+            }
+        }
+        stage('Run entit info service') {
+		    steps {
+			  catchError {
+                   bat 'docker container stop stock-market-company-service'
+				   bat 'docker container rm stock-market-company-service'
+                
+              }
+              
+              bat 'docker run -d --name stock-market-company-service -p 8082:8082 stock-market-company-service'
+            }
+        }
+    }
+}
