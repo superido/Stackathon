@@ -18,8 +18,9 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     ip-address: true
-#
-#zuul:
-#  ignoredServices: '*'
-#  routes:
-#    order-service: /stockmarket/**
+
+zuul:
+  ignoredServices: '*'
+  prefix: /ibm
+  routes:
+    company-service: /stockmarket/**
