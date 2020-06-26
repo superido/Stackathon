@@ -15,14 +15,14 @@ export class UserService {
   constructor(private httpUtil: HttpUtil) {}
 
   login(user) {
-    let param = { username: user.username, password: user.password };
+    const param = { userName: user.userName, password: user.password };
     console.log(param);
-    let url = '/login';
-    return this.httpUtil.postForm(url, param);
+    const url = 'userapi/user/userinfo/login';
+    return this.httpUtil.post(url, param);
   }
 
   register(tUser: TUser): any {
-    return this.httpUtil.post('/register', tUser);
+    return this.httpUtil.post('userapi/user/userinfo/register', tUser);
   }
 
   public get currentUserToken(): string {

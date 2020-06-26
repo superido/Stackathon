@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
 @Injectable()
@@ -14,31 +14,17 @@ export class HttpUtil {
   constructor(private http: HttpClient) {}
 
   post(url: string, param?: any) {
-    url = `${environment.baseUrl}/url`;
+    url = `${environment.baseUrl}/${url}`;
     //url = this.getSessionIdUrl(url);
     //noinspection TypeScriptValidateTypes
     return this.http
-      .post(url, param, httpOptions)
-      // .map(this.extractData)
-      // .catch(this.handleError);
-  }
-  postForm(url: string, param?: any) {
-    url = `${environment.baseUrl}/url`;
-    let formData: FormData = new FormData();
-    formData.append('username', param.username);
-    formData.append('password', param.password);
-
-    //noinspection TypeScriptValidateTypes
-    return this.http
-      .post(url, formData, httpOptions)
+      .post(url, param, httpOptions);
       // .map(this.extractData)
       // .catch(this.handleError);
   }
 
   put(url: string, param?: any) {
-    url = `${environment.baseUrl}/url`;
-    //url = this.getSessionIdUrl(url);
-    //noinspection TypeScriptValidateTypes
+    url = `${environment.baseUrl}/${url}`;
     return this.http
       .put(url, param, httpOptions)
       // .map(this.extractData)
@@ -46,9 +32,7 @@ export class HttpUtil {
   }
 
   delete(url: string) {
-    url = `${environment.baseUrl}/url`;
-    //url = this.getSessionIdUrl(url);
-    //noinspection TypeScriptValidateTypes
+    url = `${environment.baseUrl}/${url}`;
     return this.http
       .delete(url, httpOptions)
       // .map(this.extractData)
@@ -56,13 +40,7 @@ export class HttpUtil {
   }
 
   get(url: string) {
-    url = `${environment.baseUrl}/url`;
-    //url = this.getSessionIdUrl(url);
-    // let options = new RequestOptions({
-    //   headers: this.headers,
-    //   withCredentials: this.withCredentials,
-    // });
-    //noinspection TypeScriptValidateTypes
+    url = `${environment.baseUrl}/${url}`;
     return this.http
       .get(url, httpOptions)
       // .map(this.extractData)

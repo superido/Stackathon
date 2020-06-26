@@ -32,8 +32,7 @@ const routes: Routes = [
         component: ComparisonComponent,
       },
     ],
-  },
-  { path: '', redirectTo: 'index/import', pathMatch: 'full' },
+  }
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

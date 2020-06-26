@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CompnayService } from '../../../services/compnay.service';
+import { CompanyService } from '../../../services/company.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -32,21 +32,30 @@ export class ComparisonComponent implements OnInit {
 
   public chartLegend: any[] = [];
 
-  constructor(private compnayService: CompnayService, private router: Router) {
+  constructor(private companyService: CompanyService, private router: Router) {
   }
 
   ngOnInit() {
-    this.compnayService.getCompanyList().subscribe((response) => {
-      this.companyList = response;
+    this.companyService.getCompanyList().subscribe((response: any) => {
+      this.companyList = response.result;
     });
-    this.compnayService.getStockExchangeList().subscribe((response) => {
-      this.stockExchangeList = response;
-    });
+    // this.companyService.getStockExchangeList().subscribe((response) => {
+    //   this.stockExchangeList = response.result;
+    // });
   }
 
 
   generateMap(){
-    this.router.navigate(['/comparecompany-chart']);
+    this.router.navigate(['/comparecompany-chart'], {
+      queryParams: {
+        companyName: this.selectedCompanyName,
+        stockExchangeName: this.selectedStockExchangeName,
+        fromPeriod: this.fromPeriod,
+        toPeriod: this.toPeriod,
+        periodSize: this.periodSize,
+        periodUnit: this.periodUnit
+      }
+  });
   }
 
   getCompanyName(e) {

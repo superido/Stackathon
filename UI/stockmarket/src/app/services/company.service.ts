@@ -15,17 +15,17 @@ export class CompanyService {
   constructor(private httpUtil: HttpUtil) {}
 
   getCompanyList() {
-    const url = '/companyinfo';
+    const url = '/companyapi/companyinfo';
     return this.httpUtil.get(url);
   }
 
   getStockExchangeList() {
-    const url = '/companyinfo/stockEexchange';
+    const url = '/companyapi/companyinfo/stockEexchange';
     return this.httpUtil.get(url);
   }
 
-  getStockPrice(tUser: TUser): any {
-    return this.httpUtil.post('/companyinfo/stock-price', tUser);
+  getStockPrice(param: any): any {
+    return this.httpUtil.post('/companyapi/companyinfo/stock-price', param);
   }
 
   public get currentUserToken(): string {

@@ -10,6 +10,7 @@ import { ManagecompanyComponent } from '../admin/managecompany/managecompany.com
 import { IpoComponent } from '../customer/ipo/ipo.component';
 import { ComparecompanyComponent } from '../customer/comparecompany-charts/comparecompany-charts.component';
 import { ComparisonComponent } from '../customer/comparison/comparison.component';
+import { NavbarComponent } from '../../component/navbar/navbar.component';
 // import { TUserModule } from '../../models/t-user.module';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AdminService } from '../../services/Admin.service';
@@ -28,7 +29,8 @@ import { CompanyService } from '../../services/company.service';
     ManagecompanyComponent,
     IpoComponent,
     ComparecompanyComponent,
-    ComparisonComponent
+    ComparisonComponent,
+    NavbarComponent
   ],
   providers: [AdminService, CompanyService],
 })

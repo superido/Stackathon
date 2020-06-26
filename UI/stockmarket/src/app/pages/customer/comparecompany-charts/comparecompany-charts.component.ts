@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CompnayService } from '../../../services/compnay.service';
+import { CompanyService } from '../../../services/company.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-comparecompany',
@@ -7,16 +8,15 @@ import { CompnayService } from '../../../services/compnay.service';
   styleUrls: ['./comparecompany-charts.component.css'],
 })
 export class ComparecompanyComponent implements OnInit {
-  constructor() {
+  constructor(private companyService: CompanyService, public activatedRoute: ActivatedRoute, private router: Router) {
     setTimeout(() => {
       this.showloading = false;
     }, 3000);
   }
 
   showloading: boolean = true;
-
   public companyList: any[] = [];
-
+  public queryParams: any = {};
 
   chartOption: any =  {
     color: ['#3398DB'],
@@ -48,7 +48,7 @@ export class ComparecompanyComponent implements OnInit {
     ],
     series: [
         {
-            name: '直接访问',
+            name: 'Price',
             type: 'bar',
             barWidth: '60%',
             data: [10, 52, 200, 334, 390, 330, 220]
@@ -58,14 +58,12 @@ export class ComparecompanyComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.companyList = this.companyList.slice(this.companyList.length + 1)
-    axios
-      .get("/company/list")
-      .then((response: any) => {
-        this.companyList = response.data.companyList
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.companyList = this.companyList.slice(this.companyList.length + 1);
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.queryParams = params["queryParams"];
+    });
+    this.companyService.getStockPrice(this.queryParams).subscribe((response: any) => {
+      this.companyList = response.result;
+    });
   }
 }

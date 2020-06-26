@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
   validInput(value: any): boolean {
     this.reset();
     let result = true;
-    if (!value.name) {
+    if (!value.userName) {
       this.alerts.push({type : 'danger', message: 'username required!'});
       result = false;
     }

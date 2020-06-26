@@ -10,13 +10,12 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { HttpUtil } from './util/http.util';
 import { MoneyPipe } from './pipe/money.pipe';
 
-import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { IndexModule } from './pages/index/index.module';
 import { UserModule } from './pages/user/user.module';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent, MoneyPipe],
+  declarations: [AppComponent, FooterComponent, MoneyPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -4,16 +4,16 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto" *ngIf="isAdmin">
       <li class="nav-item active list-inline">
-        <a class="nav-link" [routerLink]="['/index/importdata']">Import Data</a>
+        <a class="nav-link" [routerLink]="['/index/import']">Import Data</a>
       </li>
       <li class="nav-item active list-inline">
-        <a class="nav-link" [routerLink]="['/index/importdata']">Manage Company</a>
+        <a class="nav-link" [routerLink]="['/index/managecompany']">Manage Company</a>
       </li>
       <li class="nav-item active list-inline">
-        <a class="nav-link" [routerLink]="['/index/importdata']">Manage Exchange</a>
+        <a class="nav-link" [routerLink]="['/index/managecompany']">Manage Exchange</a>
       </li>
       <li class="nav-item active list-inline">
-        <a class="nav-link" [routerLink]="['/index/importdata']">Update IPO Details</a>
+        <a class="nav-link" [routerLink]="['/index/ipo']">Update IPO Details</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-auto" *ngIf="!isAdmin">

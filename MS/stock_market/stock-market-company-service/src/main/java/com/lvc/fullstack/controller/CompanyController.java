@@ -2,13 +2,12 @@ package com.lvc.fullstack.controller;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +26,7 @@ import com.lvc.fullstack.service.impl.CompanyService;
 import com.lvc.fullstack.service.impl.StockPriceService;
 
 @RestController
+@CrossOrigin(value = "http://localhost:4200")
 @RequestMapping("/companyinfo")
 public class CompanyController {
 
