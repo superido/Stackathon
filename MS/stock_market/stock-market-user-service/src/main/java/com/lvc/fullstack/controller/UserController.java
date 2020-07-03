@@ -12,7 +12,7 @@ import com.lvc.fullstack.entity.User;
 import com.lvc.fullstack.service.IUserService;
 
 @RestController
-//@CrossOrigin(value = "http://localhost:4200")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/userinfo")
 public class UserController {
 

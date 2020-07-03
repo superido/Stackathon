@@ -22,7 +22,7 @@ export class UserService {
   }
 
   register(tUser: TUser): any {
-    return this.httpUtil.post('userapi/user/userinfo/register', tUser);
+    return this.httpUtil.post('userapi/user/userinfo/signup', tUser);
   }
 
   public get currentUserToken(): string {

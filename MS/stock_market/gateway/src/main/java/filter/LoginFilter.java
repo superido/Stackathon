@@ -47,7 +47,7 @@ public class LoginFilter extends ZuulFilter {
 
         System.out.println(request.getRequestURI());
 
-        if ("/stockmarket/api/v1/order/save".equalsIgnoreCase(request.getRequestURI())) {
+        if ("ibm/stockmarket/user/userinfo/login".equalsIgnoreCase(request.getRequestURI())) {
             return true;
         }
 
@@ -73,7 +73,7 @@ public class LoginFilter extends ZuulFilter {
         }
 
         // JWT
-        if (StringUtils.isNotBlank(token) && "123abc".equals(token)) {
+        if (StringUtils.isNotBlank(token)) {// && "123abc".equals(token)
             ctx.setSendZuulResponse(true);
             ctx.setResponseStatusCode(HttpStatus.OK.value());
             ctx.set("isSuccess", true);

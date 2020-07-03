@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   }
   check(user: TUser) {
     let result = true;
-    if (!user.username) {
+    if (!user.userName) {
       this.msg = '用户名不能为空';
       result = false;
       return result;
@@ -36,13 +36,8 @@ export class RegisterComponent implements OnInit {
       result = false;
       return result;
     }
-    if (!user.mobilePhone) {
+    if (!user.mobileNum) {
       this.msg = '手机号不能为空';
-      result = false;
-      return result;
-    }
-    if (!user.email) {
-      this.msg = '邮箱不能为空';
       result = false;
       return result;
     }
@@ -52,8 +47,8 @@ export class RegisterComponent implements OnInit {
     console.log('register User:', this.tUser);
     if (!this.check(this.tUser)) return;
     this.userService.register(this.tUser).subscribe((data) => {
-      if (data.code == 0) {
-        this.router.navigate(['/login']);
+      if (data.code == 200) {
+        this.router.navigate(['/user/login']);
       } else {
         this.msg = data.msg;
       }

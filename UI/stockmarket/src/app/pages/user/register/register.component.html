@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="form-box">
+  <div class="d-flex justify-content-center h-100">
     <div class="sign-tab">
       <span id="nBtn" class="on">sign up</span>
     </div>
@@ -7,11 +7,19 @@
     <div id='nForm' class="formbox">
       <form class="form" id="f2"   method="post">
         <p class="inp">
-          <input  name="username" [(ngModel)]="tUser.username"  placeholder="user name"
+          <input  name="userName" [(ngModel)]="tUser.userName"  placeholder="user id"
+                  type="text" readonly onfocus="this.removeAttribute('readonly');">
+        </p>
+        <p class="inp">
+          <input  name="realName" [(ngModel)]="tUser.realName"  placeholder="real name"
                   type="text" readonly onfocus="this.removeAttribute('readonly');">
         </p>
         <p class="inp">
           <input  name="email" [(ngModel)]="tUser.email"  placeholder="mail"
+                  type="text" readonly onfocus="this.removeAttribute('readonly');">
+        </p>
+        <p class="inp">
+          <input  name="phone" [(ngModel)]="tUser.mobileNum"  placeholder="mobile number"
                   type="text" readonly onfocus="this.removeAttribute('readonly');">
         </p>
         <p class="inp">

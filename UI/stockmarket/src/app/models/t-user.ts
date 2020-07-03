@@ -3,13 +3,13 @@
  */
 export class TUser {
   id: number;
-  name: string;
-  sex: string = 'S';
-  mobilePhone: string;
+  realName: string;
+  sex: string = '';
+  mobileNum: string;
   telPhone: string;
   email: string;
-  address: string;
-  username: string;
+  address: string;N
+  userName: string;
   password: string;
   birthday: string;
   status:string;
