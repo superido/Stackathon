@@ -34,6 +34,6 @@ export class NavbarComponent implements OnInit, DoCheck {
 
   signOut() {
     sessionStorage.removeItem('token');
-    this.router.navigate(['/sign-in']);
+    this.router.navigate(['/user/login']);
   }
 }

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           const info: any = data;
           if (200 === info.code) {
               console.log('登录成功，调转详情页');
-              sessionStorage.setItem('token', info.result.token)
+              sessionStorage.setItem('token', info.result.token);
               this.router.navigate(['/index']);
           } else {
             console.log('登录失败，弹出MSG');
