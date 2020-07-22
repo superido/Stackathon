@@ -23,9 +23,7 @@ DROP TABLE IF EXISTS `company`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `company` (
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT NULL,
-  `id` varchar(45) DEFAULT NULL,
+  `company_id` bigint(20) NOT NULL,
   `company_name` varchar(45) DEFAULT NULL,
   `turnover` varchar(45) DEFAULT NULL,
   `CEO` varchar(45) DEFAULT NULL,
@@ -33,9 +31,22 @@ CREATE TABLE `company` (
   `stock_exchanges` varchar(45) DEFAULT NULL,
   `sector` varchar(45) DEFAULT NULL,
   `brief` varchar(256) DEFAULT NULL,
-  `stock_code` varchar(45) DEFAULT NULL
+  `stock_code` varchar(45) DEFAULT NULL,
+  `create_date` datetime(6) NOT NULL,
+  `update_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`company_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `company`
+--
+
+LOCK TABLES `company` WRITE;
+/*!40000 ALTER TABLE `company` DISABLE KEYS */;
+INSERT INTO `company` VALUES (1,'ibm','1','ginny','123','123','123','123','1','2020-06-01 00:00:00.000000','2020-06-01 00:00:00.000000');
+/*!40000 ALTER TABLE `company` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -46,4 +57,4 @@ CREATE TABLE `company` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-05-17 23:38:44
+-- Dump completed on 2020-07-22 14:31:43

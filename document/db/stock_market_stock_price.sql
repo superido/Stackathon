@@ -16,31 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `role`
+-- Table structure for table `stock_price`
 --
 
-DROP TABLE IF EXISTS `role`;
+DROP TABLE IF EXISTS `stock_price`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `role` (
-  `id` varchar(45) NOT NULL,
-  `user_id` varchar(45) NOT NULL,
-  `role_type` char(1) DEFAULT NULL,
-  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `update_time` timestamp NULL DEFAULT NULL,
-  `role_id` int(11) NOT NULL,
-  `role_name` varchar(255) DEFAULT NULL,
+CREATE TABLE `stock_price` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `company_id` varchar(255) NOT NULL,
+  `current_price` decimal(19,2) NOT NULL,
+  `stock_exchange` varchar(255) NOT NULL,
+  `company_code` varchar(255) NOT NULL,
+  `price_date` date NOT NULL,
+  `price_time` time NOT NULL,
+  `create_date` datetime(6) DEFAULT NULL,
+  `update_date` datetime(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `role`
+-- Dumping data for table `stock_price`
 --
 
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+LOCK TABLES `stock_price` WRITE;
+/*!40000 ALTER TABLE `stock_price` DISABLE KEYS */;
+INSERT INTO `stock_price` VALUES (1,'1',100.12,'1','IBM123','2020-06-01','11:11:00',NULL,NULL);
+/*!40000 ALTER TABLE `stock_price` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
